@@ -6,12 +6,12 @@
 #include <string>
 #include <math.h>
 
-#define MONEY_SUPPLY                                    ((uint64_t)88888888000000000)
-#define EMISSION_SPEED_FACTOR                           19
+#define MONEY_SUPPLY                                    ((uint64_t)1250000000000000)
+#define EMISSION_SPEED_FACTOR                           18
 #define FINAL_SUBSIDY                                   ((uint64_t)4000000000) // 4 * pow(10, 9)
-#define GENESIS_BLOCK_REWARD                            ((uint64_t)8800000000000000)
+#define GENESIS_BLOCK_REWARD                            ((uint64_t)0)
 
-#define DIFFICULTY_TARGET                               240  // seconds
+#define DIFFICULTY_TARGET                               120 // seconds
 
 #define COIN_EMISSION_MONTH_INTERVAL                    6
 #define COIN_EMISSION_HEIGHT_INTERVAL                   ((uint64_t) (COIN_EMISSION_MONTH_INTERVAL * 30.4375 * 24 * 3600 / DIFFICULTY_TARGET))
