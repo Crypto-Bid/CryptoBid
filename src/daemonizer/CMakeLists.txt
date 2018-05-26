@@ -54,9 +54,9 @@ else()
   )
 endif()
 
-sumokoin_private_headers(daemonizer
+cryptobid_private_headers(daemonizer
   ${daemonizer_private_headers})
-sumokoin_add_library(daemonizer
+cryptobid_add_library(daemonizer
   ${daemonizer_sources}
   ${daemonizer_headers}
   ${daemonizer_private_headers})
