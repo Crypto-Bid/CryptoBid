@@ -1,5 +1,5 @@
 // Copyright (c) 2017, SUMOKOIN
-//
+// Copyright (c) 2018, cryptobid
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, are
@@ -215,7 +215,7 @@ private:
 
 	inline bool check_override()
 	{
-		const char *env = getenv("SUMO_USE_SOFTWARE_AES");
+		const char *env = getenv("cryptobid_USE_SOFTWARE_AES");
 		if (!env) {
 			return false;
 		}
