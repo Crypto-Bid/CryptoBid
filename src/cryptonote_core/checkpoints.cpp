@@ -209,20 +209,20 @@ namespace cryptonote
 
   bool checkpoints::load_checkpoints_from_dns(bool testnet)
   {
-    // All SumoPulse domains have DNSSEC on and valid
+    // All cryptobidPulse domains have DNSSEC on and valid
     static const std::vector<std::string> dns_urls = 
     {
-	"checkpoints.sumopulse.stream"
-	, "checkpoints.sumopulse.download"
-	, "checkpoints.sumopulse.win"
-	, "checkpoints.sumopulse.bid"
+	"checkpoints.cryptobidpulse.stream"
+	, "checkpoints.cryptobidpulse.download"
+	, "checkpoints.cryptobidpulse.win"
+	, "checkpoints.cryptobidpulse.bid"
     };
 
     static const std::vector<std::string> testnet_dns_urls = { 
-	"testpoints.sumopulse.stream"
-	, "testpoints.sumopulse.download"
-	, "testpoints.sumopulse.win"
-	, "testpoints.sumopulse.bid"
+	"testpoints.cryptobidpulse.stream"
+	, "testpoints.cryptobidpulse.download"
+	, "testpoints.cryptobidpulse.win"
+	, "testpoints.cryptobidpulse.bid"
     };
 
     std::vector<std::vector<std::string> > records;
@@ -279,7 +279,7 @@ namespace cryptonote
 
     if (num_valid_records < 2)
     {
-      LOG_PRINT_L0("WARNING: no two valid SumoPulse DNS checkpoint records were received");
+      LOG_PRINT_L0("WARNING: no two valid cryptobidPulse DNS checkpoint records were received");
       return true;
     }
 
@@ -301,7 +301,7 @@ namespace cryptonote
 
     if (good_records_index < 0)
     {
-      LOG_PRINT_L0("WARNING: no two SumoPulse DNS checkpoint records matched");
+      LOG_PRINT_L0("WARNING: no two cryptobidPulse DNS checkpoint records matched");
       return true;
     }
 
