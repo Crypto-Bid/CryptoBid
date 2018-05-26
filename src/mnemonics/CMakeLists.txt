@@ -43,9 +43,9 @@ set(mnemonics_private_headers
   singleton.h
   spanish.h)
 
-sumokoin_private_headers(mnemonics
+cryptobid_private_headers(mnemonics
   ${mnemonics_private_headers})
-sumokoin_add_library(mnemonics
+cryptobid_add_library(mnemonics
   ${mnemonics_sources}
   ${mnemonics_headers}
   ${mnemonics_private_headers})
