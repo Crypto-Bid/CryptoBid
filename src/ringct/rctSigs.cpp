@@ -673,7 +673,7 @@ namespace rct {
         size_t i;
         keyV masks(destinations.size()); //sk mask..
         outSk.resize(destinations.size());
-        key sumout = zero();
+        key cryptobidut = zero();
         for (i = 0; i < destinations.size(); i++) {
 
             //add destination to sig
@@ -684,7 +684,7 @@ namespace rct {
              verRange(rv.outPk[i].mask, rv.p.rangeSigs[i]);
          #endif
          
-            sc_add(sumout.bytes, outSk[i].mask.bytes, sumout.bytes);
+            sc_add(cryptobidut.bytes, outSk[i].mask.bytes, cryptobidut.bytes);
 
             //mask amount and mask
             rv.ecdhInfo[i].mask = copy(outSk[i].mask);
@@ -707,7 +707,7 @@ namespace rct {
             genC(rv.pseudoOuts[i], a[i], inamounts[i]);
         }
         rv.mixRing = mixRing;
-        sc_sub(a[i].bytes, sumout.bytes, sumpouts.bytes);
+        sc_sub(a[i].bytes, cryptobidut.bytes, sumpouts.bytes);
         genC(rv.pseudoOuts[i], a[i], inamounts[i]);
         DP(rv.pseudoOuts[i]);
 
@@ -825,13 +825,13 @@ namespace rct {
         tools::thread_group threadpool(tools::thread_group::optimal_with_max(threads));
 
         if (semantics) {
-          key sumOutpks = identity();
+          key cryptobidutpks = identity();
           for (size_t i = 0; i < rv.outPk.size(); i++) {
-              addKeys(sumOutpks, sumOutpks, rv.outPk[i].mask);
+              addKeys(cryptobidutpks, cryptobidutpks, rv.outPk[i].mask);
           }
-          DP(sumOutpks);
+          DP(cryptobidutpks);
           key txnFeeKey = scalarmultH(d2h(rv.txnFee));
-          addKeys(sumOutpks, txnFeeKey, sumOutpks);
+          addKeys(cryptobidutpks, txnFeeKey, cryptobidutpks);
 
           key sumPseudoOuts = identity();
           for (size_t i = 0 ; i < rv.pseudoOuts.size() ; i++) {
@@ -840,7 +840,7 @@ namespace rct {
           DP(sumPseudoOuts);
 
           //check pseudoOuts vs Outs..
-          if (!equalKeys(sumPseudoOuts, sumOutpks)) {
+          if (!equalKeys(sumPseudoOuts, cryptobidutpks)) {
               LOG_PRINT_L1("Sum check failed");
               return false;
           }
