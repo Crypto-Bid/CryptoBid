@@ -1,3 +1,4 @@
+// Copyright (c) 2018, CRYPTOBID
 // Copyright (c) 2017, SUMOKOIN
 // Copyright (c) 2014-2017, The Monero Project
 // 
@@ -53,26 +54,26 @@
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2            12
 
 // MONEY_SUPPLY - total number coins to be generated
-#define MONEY_SUPPLY                                    ((uint64_t)88888888000000000)
-#define EMISSION_SPEED_FACTOR                           19
-#define FINAL_SUBSIDY                                   ((uint64_t)4000000000) // 4 * pow(10, 9)
-#define GENESIS_BLOCK_REWARD                            ((uint64_t)8800000000000000) // ~10% dev premine
+#define MONEY_SUPPLY                                    ((uint64_t)1250000000000000) //12.5 kk
+#define EMISSION_SPEED_FACTOR                           18
+#define FINAL_SUBSIDY                                   ((uint64_t)400000000) // 4 * COIN
+#define GENESIS_BLOCK_REWARD                            ((uint64_t)0) // no premine
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 60
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE       240 * 1024    // 240kB
 #define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
-#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                9
+#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                8
 // COIN - number of smallest units in one coin
-#define COIN                                            ((uint64_t)1000000000) // pow(10, 9)
+#define COIN                                            ((uint64_t)100000000) // 1.00000000
 
-#define FEE_PER_KB                                      ((uint64_t)500000) 
-#define DYNAMIC_FEE_PER_KB_BASE_FEE                     ((uint64_t)500000) // 0.0005 * pow(10, 9)
-#define DYNAMIC_FEE_PER_KB_BASE_BLOCK_REWARD            ((uint64_t)64000000000) // 64 * pow(10, 9)
+#define FEE_PER_KB                                      ((uint64_t)50000) 
+#define DYNAMIC_FEE_PER_KB_BASE_FEE                     ((uint64_t)50000) // 0.0005 * Coin
+#define DYNAMIC_FEE_PER_KB_BASE_BLOCK_REWARD            ((uint64_t)6400000000) // 64 * Coin
 
 #define ORPHANED_BLOCKS_MAX_COUNT                       100
 
-#define DIFFICULTY_TARGET                               240  // seconds
-#define DIFFICULTY_WINDOW                               720  // blocks
+#define DIFFICULTY_TARGET                               120  // seconds
+#define DIFFICULTY_WINDOW                               360  // blocks
 #define DIFFICULTY_LAG                                  15   // !!!
 #define DIFFICULTY_CUT                                  60   // timestamps to cut after sorting
 #define DIFFICULTY_BLOCKS_COUNT                         DIFFICULTY_WINDOW + DIFFICULTY_LAG
@@ -119,7 +120,7 @@
 
 #define ALLOW_DEBUG_COMMANDS
 
-#define CRYPTONOTE_NAME                                 "sumokoin"
+#define CRYPTONOTE_NAME                                 "cryptobid"
 #define CRYPTONOTE_POOLDATA_FILENAME                    "poolstate.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME              "blockchain.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_TEMP_FILENAME         "blockchain.bin.tmp"
@@ -149,31 +150,31 @@ namespace config
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000); // pow(10, 5)
   std::string const P2P_REMOTE_DEBUG_TRUSTED_PUB_KEY = "0000000000000000000000000000000000000000000000000000000000000000";
 
-  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x2bb39a;  // Sumo
-  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x29339a; //Sumi
-  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x8319a; // Subo
-  //uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_SUBADDRESS_BASE58_PREFIX = 0x5b19a; // Subi
-  uint16_t const P2P_DEFAULT_PORT = 19733;
-  uint16_t const RPC_DEFAULT_PORT = 19734;
+  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x7884f;  // bid
+  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x1c484f; //bidi
+  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x24c7cf; // bibo
+  //uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_SUBADDRESS_BASE58_PREFIX = 0x5b19a; // Subi unchanged
+  uint16_t const P2P_DEFAULT_PORT = 19331;
+  uint16_t const RPC_DEFAULT_PORT = 19332;
 
   boost::uuids::uuid const NETWORK_ID = { {
-      0x04, 0x06, 0xdf, 0xce, 0xfc, 0x7c, 0x27, 0x4a, 0x24, 0xd4, 0xf3, 0x8d, 0x42, 0x44, 0x60, 0xa8
-    } }; // Bender's nightmare
-  std::string const GENESIS_TX = "023c01ff0001808098d0daf1d00f028be379aa57a70fa19c0ee5765fdc3d2aae0b1034158f4963e157d9042c24fbec21013402fc7071230f1f86f33099119105a7b1f64a898526060ab871e685059c223100";
+      0x04, 0xdf, 0x7c, 0xce, 0xfc, 0x44, 0x60, 0x27, 0x4a,  0xd4, 0xf3, 0x8d, 0x24, 0x42, 0x06, 0xa8
+    } }; // 
+  std::string const GENESIS_TX = "";
   uint32_t const GENESIS_NONCE = 10000;
 
   namespace testnet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x37751a; // Suto
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x34f51a; // Suti
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x1d351a; // Susu
-    //uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_SUBADDRESS_BASE58_PREFIX = 0x17b51a; // Susi
-    uint16_t const P2P_DEFAULT_PORT = 29733;
-    uint16_t const RPC_DEFAULT_PORT = 29734;
+    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x21884f; // bidt
+    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0xe8bcf; // bitd
+    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x168bcf; // bitu
+    //uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_SUBADDRESS_BASE58_PREFIX = 0x17b51a; // Susi unchanged
+    uint16_t const P2P_DEFAULT_PORT = 29331;
+    uint16_t const RPC_DEFAULT_PORT = 29332;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x12, 0x04, 0x06, 0xdf, 0xce, 0xfc, 0x7c, 0x27, 0x4a, 0x24, 0xd4, 0xf3, 0x8d, 0x42, 0x44, 0x60
-      } }; // Bender's daydream
-    std::string const GENESIS_TX = "023c01ff0001808098d0daf1d00f028d7bbb5a23ab085e05230bd45d938c71f669f94c2a170b96b64827b7bc2cbde521012b6ed837a56ef72f57b4e46410bdea82e382c43ae8797a0f3e8419b5d4f8e6fe00";
+        0x12, 0xce, 0x8d, 0x42, 0x44, 0x04, 0x06, 0xdf, 0xfc, 0x7c, 0x27, 0x4a, 0x24, 0xd4, 0xf3, 0x60
+      } }; // 
+    std::string const GENESIS_TX = "";
     uint32_t const GENESIS_NONCE = 10001;
   }
 }
