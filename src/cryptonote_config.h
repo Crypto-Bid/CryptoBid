@@ -57,7 +57,7 @@
 #define MONEY_SUPPLY                                    ((uint64_t)1250000000000000) //12.5 kk
 #define EMISSION_SPEED_FACTOR                           18
 #define FINAL_SUBSIDY                                   ((uint64_t)400000000) // 4 * COIN
-#define GENESIS_BLOCK_REWARD                            ((uint64_t)4368371582) // no premine
+#define GENESIS_BLOCK_REWARD                            ((uint64_t)4768371582) // no premine
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 60
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE       240 * 1024    // 240kB
