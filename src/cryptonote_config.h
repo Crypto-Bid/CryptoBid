@@ -73,8 +73,8 @@
 #define ORPHANED_BLOCKS_MAX_COUNT                       100
 
 #define DIFFICULTY_TARGET                               120  // seconds
-#define DIFFICULTY_WINDOW                               360  // blocks
-#define DIFFICULTY_LAG                                  15   // !!!
+#define DIFFICULTY_WINDOW                               3  // blocks
+#define DIFFICULTY_LAG                                  9   // !!!
 #define DIFFICULTY_CUT                                  60   // timestamps to cut after sorting
 #define DIFFICULTY_BLOCKS_COUNT                         DIFFICULTY_WINDOW + DIFFICULTY_LAG
 
@@ -135,8 +135,8 @@
 #define PEAK_COIN_EMISSION_YEAR                         4
 #define PEAK_COIN_EMISSION_HEIGHT                       ((uint64_t) (((12 * 30.4375 * 24 * 3600)/DIFFICULTY_TARGET) * PEAK_COIN_EMISSION_YEAR)) // = (# of heights emmitted per year) * PEAK_COIN_EMISSION_YEAR
 
-#define DEFAULT_MIXIN                                   12     // default & minimum mixin allowed
-#define MAX_MIXIN                                       240    
+#define DEFAULT_MIXIN                                   0     // default & minimum mixin allowed
+#define MAX_MIXIN                                       24  
 
 #define TRANSACTION_SIZE_LIMIT                          ((uint64_t) ((CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE * 110 / 100) - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE))
 #define BLOCK_SIZE_GROWTH_FAVORED_ZONE                  ((uint64_t) (CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE * 4))
